@@ -1,0 +1,46 @@
+#!/usr/bin/bash 
+#
+#How to Install MongoDb and Mongosh on Linux (debian) officially
+
+# Step 1: Update System Packages
+sudo apt update
+
+# Step 2: Install MongoDB Package 
+sudo apt install mongodb -y
+
+# 3: Start MongoDB Service
+sudo service mongodb start
+
+# Step 4: Verify MongoDB Status
+sudo service mongodb status
+
+# You should see output similar to the following, indicating that the service is active and running:
+#● mongodb.service - An object/document-oriented database
+#     Loaded: loaded (/lib/systemd/system/mongodb.service; enabled; vendor preset: enabled)
+#     Active: active (running) since [Timestamp]
+#       Docs: man:mongod(1)
+#   Main PID: [PID]
+#      Tasks: [Task Count]
+#     Memory: [Memory Usage]
+#        CPU: [CPU Usage]
+#     CGroup: /system.slice/mongodb.service
+#             └─ [PID] /usr/bin/mongod --config /etc/mongod.conf
+
+
+# Step 5: Enable the MongoDB Service - To make MongoDB start automatically upon power on or system boot
+sudo systemctl enable mongodb
+
+# Step 5: Connect to MongoDB
+mongo
+
+
+# Mongosh is a newer version but not supported since is not supported. It's NOT recommended to use any workaround in #Linux(debian) to install MongoDB, because it can lead to problems if you gonna use it in production. Below is the #workaround that worked for me:
+
+#Download libssl1.1_1.1.1f-1ubuntu2_amd64.deb from official repository:
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
+#Install it:
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
+#Proceed with the installation of MongoDB:
+sudo apt-get install -y mongodb-org
