@@ -32,15 +32,3 @@ sudo systemctl enable mongodb
 
 # Step 5: Connect to MongoDB
 mongo
-
-
-# Mongosh is a newer version but not supported since is not supported. It's NOT recommended to use any workaround in #Linux(debian) to install MongoDB, because it can lead to problems if you gonna use it in production. Below is the #workaround that worked for me:
-
-#Download libssl1.1_1.1.1f-1ubuntu2_amd64.deb from official repository:
-wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-
-#Install it:
-sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-
-#Proceed with the installation of MongoDB:
-sudo apt-get install -y mongodb-org
