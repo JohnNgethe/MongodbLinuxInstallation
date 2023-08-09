@@ -20,7 +20,7 @@ sudo service mongod start
 #You can now use Mongosh by styping mongosh on terminal
 mongosh
 
-#out is as shown below, some errors may show :
+#out is as shown below, some errors may show how to fix them is described in the readme:
 
 #Current Mongosh Log ID:	64d36a30cdac5aecaa190ad8
 #Connecting to:		mongodb://127.0.0.1:27017/?#directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.3
